@@ -3,6 +3,47 @@ const gitUrl = "https://api.github.com/users/" + window.GitHubUsername + "/repos
 const gitUrlRepos = "https://api.github.com/repos/" + window.GitHubUsername +"/"
 const minseskinUrl = "https://mineskin.eu/helm/"+ window.MinecraftUsername +"/100.png"
 
+
+
+//Permet de clicker sur une image et va permettre d'avoir input
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = 'image/*';
+fileInput.id = 'spriteUpload';
+fileInput.style.display = 'none';
+document.body.appendChild(fileInput);
+
+let targetImg = null;
+
+//En cas de nouveau input d'image il va appelé cette fonction
+fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const img = targetImg;
+
+    //On reset le tout au cas où
+    if (!file || !img) {
+        e.target.value = '';
+        targetImg = null;
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = (ev) => {
+        // avec ev on prends l'image upload
+        img.src = ev.target.result;
+        img.classList.remove('NoData');
+        // on reset après l'avoir changer pour pouvoir le rechanger après
+        e.target.value = '';
+    };
+    reader.readAsDataURL(file);
+
+    targetImg = null;
+});
+
+
+
+
 // Il faudrait faire le moins d'appel à l'API possible donc je dirait qu'on peut en faire 3
 // 1 pour reprendre directement le nom (name)de chaque repos ainsi que le nombre de Star (stargazers_count), la taille (size), le language (language), le nombre de fork (forks_count)
 // Pour ce qui est du nombre de contributeur ou du nombre de commit il faut faire une requête pour chaque repos mais en changeant le endpoint pour ce qui est de contributeur mettre (https://api.github.com/repos/DiscartGauthier/a-delete/contributors), et pour les commits (https://api.github.com/repos/DiscartGauthier/a-delete/commits)
@@ -36,8 +77,14 @@ for(const repo of repos) {
     if (k >= 10)
         break;
 }
-
-//arr[k] = ["Hello", "100", "14", "123", "C#", "143", "2"]
+/*
+const arr = [];
+arr[0] = ["a-delete", "0", "1", "5", "C++", "14 K", "1"]
+arr[1] = ["DiscartGauthier", "0", "1", "10", "No code", "20", "0"]
+arr[2] = ["MinecraftGitProfile", "0", "1", "16", "JavaScript", "47", "0"]
+arr[3] = ["UnNom", "0", "1", "16", "C#", "47", "0"]
+arr[4] = ["Cocouc", "0", "1", "16", "C#", "47", "0"]
+*/
 
 let table = document.querySelector('#tbody');
 //i va permettre de mettre ne muted (estompé) une ligne sur deux
@@ -52,21 +99,34 @@ for (let subArr of arr) {
     let dv = document.createElement('div');
     dv.classList.add('pix');
     let img = document.createElement('img');
-    const imageRepoE = await fetch("./sprites/" + subArr[0] +".png");
+
+    const imageRepoE = await fetch("./sprites/" + subArr[0] + ".png");
+    //Ici il va check si on a ou pas l'image qui va
     if (!imageRepoE.ok) {
-        img.setAttribute('src', 'sprites/Default.png');
+        //Si non, on mets l'image par défaut et lui donne de quoi changer en cas de click
+        img.src = 'sprites/Default.png';
+        img.classList.add('NoData');
+        img.title = 'Clique pour mettre une image';
+        img.style.cursor = 'pointer';
+
+        img.addEventListener('click', () => {
+            targetImg = img;
+            fileInput.click();
+        });
     } else {
-        img.setAttribute('src', 'sprites/'+ subArr[0] +'.png');
+        img.src = 'sprites/' + subArr[0] + '.png';
     }
 
-    img.setAttribute('alt', 'Test');
-    img.setAttribute('title', subArr[0])
+
+    img.setAttribute('alt', 'Icône du dépôt');
+    img.setAttribute('title', subArr[0]);
+
     dv.appendChild(img);
     th.appendChild(dv);
     tr.appendChild(th);
 
     //Va initialiser les données dans chaque ligne de repos
-    for (let j=1; j<=subArr.length; j++) {
+    for (let j=1; j < subArr.length; j++) {
         let td = document.createElement('td');
         td.classList.add('num');
         if(i%2 === 0) {
@@ -139,4 +199,25 @@ function noMoreCaracter(string) {
     }
     return lastString;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
