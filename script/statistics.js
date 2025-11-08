@@ -15,6 +15,7 @@ async function main() {
 
     let cornerHead = document.getElementById("Head");
     cornerHead.setAttribute('src', minseskinUrl)
+    cornerHead.setAttribute('title', window.MinecraftUsername)
 
     /*
     const repos = await getJson(gitUrl);
@@ -31,15 +32,16 @@ async function main() {
     }
 */
 //Faire 2 trois choses, 1 si langue + grande que 16 caractère mettre ..., Tout mettre en '' string, 
-    let arr = [[0, 1, 5, 'C++', 14786, 1], [0, 1, 10, 'null', 20, 0], ['100 Md', '000 Md', '000 Md', 'CSS', '410 Kd', '000 Md'], [0, 0, 0, 'coucou ndfv jeou...', 0, 0]];
+    let arr = [['Hello', 0, 1, 5, 'C++', 14786, 1], ['Hello', 0, 1, 10, 'null', 20, 0], ['Hello', '100 Md', '000 Md', '000 Md', 'CSS', '410 Kd', '000 Md'], ['Hello', 0, 0, 0, 'coucou ndfv jeou...', 0, 0]];
     let table = document.querySelector('#tbody');
 
+    //i va permettre de mettre ne muted (estompé) une ligne sur deux
     let i = 1;
     for (let subArr of arr) {
         let tr = document.createElement('tr');
         tr.classList.add('stat-row');
         
-
+        //Va initialiser l'image au début de chaque repos
         let th = document.createElement('th');
         th.classList.add('row-icon');
         let dv = document.createElement('div');
@@ -47,17 +49,19 @@ async function main() {
         let img = document.createElement('img');
         img.setAttribute('src', 'sprites/repos1.png');
         img.setAttribute('alt', 'Test');
+        img.setAttribute('title', subArr[0])
         dv.appendChild(img);
         th.appendChild(dv);
         tr.appendChild(th);
 
-        for (let elem of subArr) {
+        //Va initialiser les données dans chaque ligne de repos
+        for (let j=1; j<=subArr.length; j++) {
             let td = document.createElement('td');
             td.classList.add('num');
             if(i%2 === 0) {
                 td.classList.add('muted');
             }
-            td.textContent = elem;
+            td.textContent = subArr[j];
             tr.appendChild(td);
         }
         
