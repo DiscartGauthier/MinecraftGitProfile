@@ -54,7 +54,7 @@ let cornerHead = document.getElementById("Head");
 cornerHead.setAttribute('src', minseskinUrl)
 cornerHead.setAttribute('title', window.MinecraftUsername)
 
-
+/*
 const repos = await getJson(gitUrl);
 const arr = [];
 let k=0;
@@ -68,7 +68,7 @@ for(const repo of repos) {
     const repostarsNumber = numberToString(repo.stargazers_count);
     const repoContributorsNumber = numberToString(contributorsJson.length);
     const repoCommitsNumber = numberToString(commitsJson.length);
-    const repoLanguage = noMoreCaracter(repo.language);
+    const repoLanguage = noMoreCaracter(repo.language, 16);
     const repoSize = numberToString(repo.size);
     const repoForksNumber = numberToString(repo.forks_count);
 
@@ -76,15 +76,15 @@ for(const repo of repos) {
     k++;
     if (k >= 10)
         break;
-}
-/*
+}*/
+
 const arr = [];
 arr[0] = ["a-delete", "0", "1", "5", "C++", "14 K", "1"]
 arr[1] = ["DiscartGauthier", "0", "1", "10", "No code", "20", "0"]
-arr[2] = ["MinecraftGitProfile", "0", "1", "16", "JavaScript", "47", "0"]
+arr[2] = ["MinecraftGitProfile", "0", "1", "16", "JavaScriptazr...", "47", "0"]
 arr[3] = ["UnNom", "0", "1", "16", "C#", "47", "0"]
 arr[4] = ["Cocouc", "0", "1", "16", "C#", "47", "0"]
-*/
+
 
 let table = document.querySelector('#tbody');
 //i va permettre de mettre ne muted (estompé) une ligne sur deux
@@ -120,10 +120,15 @@ for (let subArr of arr) {
 
     img.setAttribute('alt', 'Icône du dépôt');
     img.setAttribute('title', subArr[0]);
-
+    let p = document.createElement('p');
+    p.classList.add('NameRepo');
+    p.textContent = noMoreCaracter(subArr[0], 19);
     dv.appendChild(img);
     th.appendChild(dv);
+        th.appendChild(p);
+
     tr.appendChild(th);
+
 
     //Va initialiser les données dans chaque ligne de repos
     for (let j=1; j < subArr.length; j++) {
@@ -189,13 +194,13 @@ function numberToString(number) {
 }
 
 //Va prendre en parametre un titre et il ne doit pas être plus long que 16 caractère aussi non il va mettre ...
-function noMoreCaracter(string) {
+function noMoreCaracter(string, maxsize) {
     if(string == null)
         return "No code"
     let lastString = string;
-    if(string.length > 16)
+    if(string.length > maxsize)
     {
-        lastString = string.slice(0, 13) + "..."
+        lastString = string.slice(0, maxsize-3) + "..."
     }
     return lastString;
 }
@@ -215,9 +220,27 @@ function noMoreCaracter(string) {
 
 
 
+const downloadBtn = document.getElementById('downloadStats');
 
+if (downloadBtn) {
+    downloadBtn.addEventListener('click', async () => {
+        const panel = document.querySelector('.stats-panel');
+        if (!panel) return;
 
+        const canvas = await html2canvas(panel, {
+            scale: 2,
+            useCORS: true
+        });
 
+        // Conversion en PNG + déclenchement du téléchargement
+        const dataURL = canvas.toDataURL('image/png');
 
-
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = `minecraft-stats-${Date.now()}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+}
 
