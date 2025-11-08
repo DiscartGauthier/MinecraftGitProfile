@@ -2,3 +2,4 @@
 Thumbs.db
 .env
 config.json
+./script/config.js
