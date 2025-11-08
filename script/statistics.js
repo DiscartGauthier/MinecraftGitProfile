@@ -80,18 +80,6 @@ main()
 
 
 
-
-
-//-----------------Retrieve Function-----------------//
-
-async function retrieveElementNumber(url) {
-    const reponse = await fetch(url);
-    const repos = await reponse.json();
-    return repos;
-}
-
-
-
 //-------------------HELPERS--------------//
 
 //will have the url in parameter
@@ -100,4 +88,34 @@ async function getJson(url) {
     const reponse = await fetch(url);
     const repos = await reponse.json();
     return repos;
+}
+
+//will check if the number is more than 999 and put K or M or G or T
+async function numberToString(number) {
+    let string;
+    if(number < 1000)
+    {
+        string = String(number);
+    }
+    else if (number < 1000000)
+    {
+        string = String(Math.floor(number/1000));
+        string = string + " K";
+    }
+    else if (number < 1000000000)
+    {
+        string = String(Math.floor(number/1000000));
+        string = string + " M";
+    }
+    else if (number < 1000000000000)
+    {       
+        string = String(Math.floor(number/1000000000));
+        string = string + " G";
+    }    
+    else
+    {
+        string = String(Math.floor(number/1000000000000));
+        string = string + " T";
+    }
+    return string;
 }
