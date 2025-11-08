@@ -33,8 +33,11 @@ for(const repo of repos) {
 
     arr[k] = [repoName, repostarsNumber, repoContributorsNumber, repoCommitsNumber, repoLanguage, repoSize, repoForksNumber]
     k++;
+    if (k >= 10)
+        break;
 }
-arr[k] = ["Hello", "100", "14", "123", "C#", "143", "2"]
+
+//arr[k] = ["Hello", "100", "14", "123", "C#", "143", "2"]
 
 let table = document.querySelector('#tbody');
 //i va permettre de mettre ne muted (estompé) une ligne sur deux
