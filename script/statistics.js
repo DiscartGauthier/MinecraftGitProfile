@@ -1,5 +1,7 @@
-const gitUrl = "https://api.github.com/users/DiscartGauthier/repos" //+ $gitUsername + "/repos"
-const gitUrlRepos = "https://api.github.com/repos/DiscartGauthier/"
+import window from './config.js';
+const gitUrl = "https://api.github.com/users/" + window.GitHubUsername + "/repos"
+const gitUrlRepos = "https://api.github.com/repos/" + window.GitHubUsername +"/"
+const minseskinUrl = "https://mineskin.eu/helm/"+ window.MinecraftUsername +"/100.png"
 
 // Il faudrait faire le moins d'appel à l'API possible donc je dirait qu'on peut en faire 3
 // 1 pour reprendre directement le nom (name)de chaque repos ainsi que le nombre de Star (stargazers_count), la taille (size), le language (language), le nombre de fork (forks_count)
@@ -9,8 +11,13 @@ const gitUrlRepos = "https://api.github.com/repos/DiscartGauthier/"
 
 //Test du Json
 async function main() {
+
+
+    let cornerHead = document.getElementById("Head");
+    cornerHead.setAttribute('src', minseskinUrl)
+
+    /*
     const repos = await getJson(gitUrl);
-    //const test = JSON.parse(cc);
   
     for(const crepos of repos) {
         console.log(crepos.name, crepos.stargazers_count, crepos.size, crepos.language, crepos.forks_count);
@@ -20,9 +27,48 @@ async function main() {
         const contributorsJson = await getJson(gitUrlRepos + crepos.name + "/contributors");
         const contributorsNumber = contributorsJson.length;
         console.log(contributorsNumber);
+        const image = "sprites/repos1.png";
+    }
+*/
+//Faire 2 trois choses, 1 si langue + grande que 16 caractère mettre ..., Tout mettre en '' string, 
+    let arr = [[0, 1, 5, 'C++', 14786, 1], [0, 1, 10, 'null', 20, 0], ['100 Md', '000 Md', '000 Md', 'CSS', '410 Kd', '000 Md'], [0, 0, 0, 'coucou ndfv jeou...', 0, 0]];
+    let table = document.querySelector('#tbody');
+
+    let i = 1;
+    for (let subArr of arr) {
+        let tr = document.createElement('tr');
+        tr.classList.add('stat-row');
+        
+
+        let th = document.createElement('th');
+        th.classList.add('row-icon');
+        let dv = document.createElement('div');
+        dv.classList.add('pix');
+        let img = document.createElement('img');
+        img.setAttribute('src', 'sprites/repos1.png');
+        img.setAttribute('alt', 'Test');
+        dv.appendChild(img);
+        th.appendChild(dv);
+        tr.appendChild(th);
+
+        for (let elem of subArr) {
+            let td = document.createElement('td');
+            td.classList.add('num');
+            if(i%2 === 0) {
+                td.classList.add('muted');
+            }
+            td.textContent = elem;
+            tr.appendChild(td);
+        }
+        
+        table.appendChild(tr);
+        i++;
     }
 
-  //console.log(test);
+
+
+
+
 
 }
 main()
