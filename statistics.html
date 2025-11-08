@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Minecraft Stats</title>
 <link rel="stylesheet" href="style/Statistics.css">
+<script defer type = "module" src="script/statistics.js"></script>
 </head>
 <body>
 
@@ -14,7 +15,7 @@
   <table class="stats">
     <thead>
       <tr>
-        <th class="row-icon"><div class="pix corner"> <img class="" src="https://mineskin.eu/helm/XGORATH_/100.png" alt=""> </div></th>
+        <th class="row-icon"><div class="pix corner"> <img id="Head" class="" alt=""> </div></th>
 
         <th><div class="pix"> <img class = "center-pix" src="sprites/Star.png" alt=""> </div></th>
         <th><div class="pix"> <img class="center-pix" src="sprites/Contribution.png" alt=""> </div></th>
@@ -25,42 +26,12 @@
       </tr>
     </thead>
 
-    <tbody>
-      <tr class="stat-row">
-        <th class="row-icon">
-          <div class="pix"> <img src="sprites/XGORATH_.png" alt=""> </div>
-        </th>
+    <tbody id="tbody">
 
-        <td class="num">–</td>
-        <td class="num">5,636,636</td>
-        <td class="num">0</td>
-        <td class="num">PHP</td>
-        <td class="num">1,004</td>
-        <td class="num">–</td>
-      </tr>
-
-      <tr class="stat-row">
-        <th class="row-icon"><div class="pix"> <img src="sprites/XGORATH_.png" alt=""> </div></th>
-        <td class="num muted">123,346</td>
-        <td class="num muted">738,636</td>
-        <td class="num muted">179</td>
-        <td class="num muted">JAVA</td>
-        <td class="num muted">–</td>
-        <td class="num muted">164</td>
-      </tr>
-
-      <tr class="stat-row">
-        <th class="row-icon"><div class="pix"> <img src="sprites/XGORATH_.png" alt=""> </div></th>
-        <td class="num">364 K</td>
-        <td class="num">6,253,540</td>
-        <td class="num">42 M</td>
-        <td class="num">C++</td>
-        <td class="num">726,353</td>
-        <td class="num">2 Md</td>
-      </tr>
 
     </tbody>
   </table>
+  <table id="table"></table>
 </div>
 
 </body>
