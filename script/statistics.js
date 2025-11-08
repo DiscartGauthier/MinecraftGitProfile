@@ -9,7 +9,6 @@ const minseskinUrl = "https://mineskin.eu/helm/"+ window.MinecraftUsername +"/10
 //En gros t'auras [[name, stars, contributors, commits, language, size, forks], [name2, stars, contributors, commits, language, size, forks], [name3, stars, contributors, commits, language, size, forks]]
 //À mon avis je vais pas utiliser tout les retrieves je vais mettre en instant le nom, star, taille, langue, forks et puis for each et mettre directement la bonne chose et là les retrieve
 
-
 let cornerHead = document.getElementById("Head");
 cornerHead.setAttribute('src', minseskinUrl)
 cornerHead.setAttribute('title', window.MinecraftUsername)
@@ -35,6 +34,7 @@ for(const repo of repos) {
     arr[k] = [repoName, repostarsNumber, repoContributorsNumber, repoCommitsNumber, repoLanguage, repoSize, repoForksNumber]
     k++;
 }
+arr[k] = ["Hello", "100", "14", "123", "C#", "143", "2"]
 
 let table = document.querySelector('#tbody');
 //i va permettre de mettre ne muted (estompé) une ligne sur deux
@@ -49,7 +49,13 @@ for (let subArr of arr) {
     let dv = document.createElement('div');
     dv.classList.add('pix');
     let img = document.createElement('img');
-    img.setAttribute('src', 'sprites/repos1.png');
+    const imageRepoE = await fetch("./sprites/" + subArr[0] +".png");
+    if (!imageRepoE.ok) {
+        img.setAttribute('src', 'sprites/Default.png');
+    } else {
+        img.setAttribute('src', 'sprites/'+ subArr[0] +'.png');
+    }
+
     img.setAttribute('alt', 'Test');
     img.setAttribute('title', subArr[0])
     dv.appendChild(img);
@@ -70,6 +76,12 @@ for (let subArr of arr) {
     table.appendChild(tr);
     i++;
 }
+
+
+
+
+
+
 
 
 
@@ -124,3 +136,4 @@ function noMoreCaracter(string) {
     }
     return lastString;
 }
+
