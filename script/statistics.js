@@ -54,7 +54,7 @@ let cornerHead = document.getElementById("Head");
 cornerHead.setAttribute('src', minseskinUrl)
 cornerHead.setAttribute('title', window.MinecraftUsername)
 
-/*
+
 const repos = await getJson(gitUrl);
 const arr = [];
 let k=0;
@@ -76,15 +76,15 @@ for(const repo of repos) {
     k++;
     if (k >= 10)
         break;
-}*/
-
+}
+/* // For the Test to not make request every time
 const arr = [];
 arr[0] = ["a-delete", "0", "1", "5", "C++", "14 K", "1"]
 arr[1] = ["DiscartGauthier", "0", "1", "10", "No code", "20", "0"]
 arr[2] = ["MinecraftGitProfile", "0", "1", "16", "JavaScriptazr...", "47", "0"]
 arr[3] = ["UnNom", "0", "1", "16", "C#", "47", "0"]
 arr[4] = ["Cocouc", "0", "1", "16", "C#", "47", "0"]
-
+*/
 
 let table = document.querySelector('#tbody');
 //i va permettre de mettre ne muted (estompé) une ligne sur deux
@@ -144,9 +144,6 @@ for (let subArr of arr) {
     table.appendChild(tr);
     i++;
 }
-
-
-
 
 
 
