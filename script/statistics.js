@@ -146,10 +146,6 @@ for (let subArr of arr) {
 }
 
 
-
-
-
-
 //-------------------HELPERS--------------//
 
 //will have the url in parameter
@@ -201,21 +197,6 @@ function noMoreCaracter(string, maxsize) {
     }
     return lastString;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const downloadBtn = document.getElementById('downloadStats');
 
