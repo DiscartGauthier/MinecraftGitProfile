@@ -119,8 +119,16 @@ export default window;
 
 ## Licence
 
-- **Code** : 
-- **Police** : Domaine public (voir `info.txt`).
+- **Code** : *Project License — Non-Commercial, No-Derivatives (PR-Only) v1.0*.  
+  Utilisation et **redistribution à l’identique** autorisées **uniquement** à des fins **non-commerciales**.  
+  **Aucun dérivé public** (forks **privés** autorisés uniquement pour préparer des **PR**).  
+  **Attribution requise**. **Aucune garantie**.  
+  Voir [LICENSE](./LICENSE) pour les conditions complètes.  
+  Contributions sous **DCO** — voir [CONTRIBUTING.md](./CONTRIBUTING.md) et [DCO.txt](./DCO.txt).
+
+- **Police** : “Minecraft” — **Domaine public**. Source :  
+  <https://www.fontspace.com/minecraft-font-f28180> (voir `info.txt`).  
+  *Remarque :* si vous chargez la police via un **CDN/hébergement tiers**, respectez les CGU de l’hébergeur.
 
 ---
 
