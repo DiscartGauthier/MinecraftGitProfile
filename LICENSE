@@ -1,0 +1,64 @@
+Project License — Non-Commercial, No-Derivatives (PR-Only) v1.0
+Copyright (c) 2025 DiscartGauthier
+
+1. Definitions
+   “Project” means the source code, assets and documentation in this repository.
+   “You” means any individual or legal entity exercising permissions under this License.
+   “Non-Commercial” means any use that is not primarily intended for or directed toward commercial
+   advantage or monetary compensation (including internal business use, paid services, or products).
+   “Derivative Work” means any modification, adaptation, translation, extension, combination,
+   or other change based on or including the Project.
+   “Maintainers” means the repository owners with write/admin rights.
+
+2. Grant (what you may do)
+   Subject to the conditions below, the Maintainers grant You a non-exclusive, worldwide,
+   royalty-free, revocable license to:
+     a) use and run the Project as-is;
+     b) copy and redistribute verbatim (unmodified) copies;
+     c) host unmodified copies (e.g., mirrors)
+   all strictly for Non-Commercial purposes.
+
+3. Attribution (credit required)
+   When You publish or use the Project (even unmodified), You must keep all copyright and license
+   notices in the source and provide a visible credit in accompanying documentation or UI where
+   appropriate, for example: “Built with <Project Name> — © REPLACE_WITH_YOUR_NAME
+   (https://github.com/REPLACE_WITH_REPO)”. Equivalent wording is acceptable.
+
+4. No Derivatives (no public modified versions)
+   You MAY NOT publish, distribute, host, sell, or otherwise make available any Derivative Work.
+   Private forks ARE allowed solely to evaluate changes and prepare contributions as Pull Requests
+   back to this repository. Except for submitting Pull Requests, You must not deploy or share a
+   modified version.
+
+5. Contributions (DCO)
+   By submitting a Pull Request, You agree that Your contribution is provided under this License
+   and that You certify the Developer Certificate of Origin (see DCO.txt). Maintainers may accept
+   or reject contributions at their discretion.
+
+6. Non-Commercial only
+   Any Commercial Use is prohibited without a separate commercial license from the Maintainers.
+   To inquire about a commercial license, contact: REPLACE_WITH_CONTACT_EMAIL.
+
+7. Third-party components
+   Third-party files included in the repository remain under their own licenses. If a file states
+   a different license (e.g., public-domain font), that license prevails for that file.
+
+8. No warranty; limitation of liability
+   THE PROJECT IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE MAINTAINERS OR CONTRIBUTORS
+   BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+   TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE PROJECT OR THE USE OR
+   OTHER DEALINGS IN THE PROJECT.
+
+9. Termination
+   This License terminates automatically if You breach it. Upon termination, You must stop all use
+   and distribution of the Project. Rights of third parties that received the Project in compliance
+   with this License are unaffected.
+
+10. Governing law
+    This License is governed by the laws of Belgium, without regard to conflict-of-law principles.
+
+---
+Notes for the author:
+  • Replace REPLACE_WITH_YOUR_NAME / REPLACE_WITH_REPO / REPLACE_WITH_CONTACT_EMAIL.
+  • If you later decide to change terms, bump the version (e.g., v1.1) and update the year.

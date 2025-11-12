@@ -18,9 +18,9 @@ Un mini-outil front-end qui génère un panneau “style Minecraft” avec les s
 ## Aperçu
 
 - Un tableau des dépôts GitHub avec : **Stars**, **Contributors**, **Commits**, **Language**, **Size**, **Forks**, et une icône “tête” Minecraft en haut à gauche.
-![Repo Statistics](file:///Users/g.discart/Downloads/RepoStat.png)
+![Repo Statistics](https://github.com/user-attachments/assets/25cbb277-6c0d-4e53-a300-580fa65262e9)
 - Si aucune image n’est associée à une ligne, vous pouvez **cliquer** sur l’image par défaut et **importer la vôtre** (GIF d’exemple possible).
-![No img For that repo](file:///Users/g.discart/Downloads/NoImgFound.png)
+![No img For that repo](https://github.com/user-attachments/assets/08275ada-0748-46ef-8dd5-6c2b5fc302ef)
 - Un bouton **“Télécharger en PNG”** capture le panneau et enregistre l’image localement pour la coller dans votre README GitHub.
 
 ## Fonctionnalités
