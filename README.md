@@ -3,7 +3,7 @@
 A small front-end tool that generates a **Minecraft-style panel** displaying public GitHub repository statistics, with the option to **export the rendered view as a PNG** for inclusion in a README or profile.
 
 <p align="right">
-  <a href="README.fr.md">🇫🇷 Français</a> | <a href="README.en.md">🇬🇧 English</a>
+  <a href="README.fr.md">🇫🇷 Français</a> | <a href="README.md">🇬🇧 English</a>
 </p>
 
 ## Table of Contents
@@ -147,7 +147,3 @@ export default window;
 > * You can run this project **without any build step** (pure HTML+CSS+JS).
 > * MAMP works perfectly, but any static server is fine (Python/Node/VSCode Live Server, etc.).
 > * The **Download as PNG** button exports exactly what’s visible on screen — resize your window before exporting.
-
----
-
-Souhaitez-vous que je te le renvoie directement sous forme de fichier `README_en.md` téléchargeable ?

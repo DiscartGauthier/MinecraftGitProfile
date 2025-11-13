@@ -3,7 +3,7 @@
 Un mini-outil front-end qui génère un panneau “style Minecraft” avec les statistiques publiques de vos dépôts GitHub, puis permet d’exporter le rendu en **PNG** pour l’insérer dans un README ou sur un profil.
 
 <p align="right">
-  <a href="README.fr.md">🇫🇷 Français</a> | <a href="README.en.md">🇬🇧 English</a>
+  <a href="README.fr.md">🇫🇷 Français</a> | <a href="README.md">🇬🇧 English</a>
 </p>
 
 ## Table des matières
