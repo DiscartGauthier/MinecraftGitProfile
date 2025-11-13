@@ -1,10 +1,10 @@
-Voici la version anglaise complète du fichier **README.md** traduite fidèlement :
-
----
-
 # Minecraft GitHubProfile Stats Panel
 
 A small front-end tool that generates a **Minecraft-style panel** displaying public GitHub repository statistics, with the option to **export the rendered view as a PNG** for inclusion in a README or profile.
+
+<p align="right">
+  <a href="README.fr.md">🇫🇷 Français</a> | <a href="README.en.md">🇬🇧 English</a>
+</p>
 
 ## Table of Contents
 
