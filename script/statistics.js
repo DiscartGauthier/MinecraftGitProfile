@@ -80,8 +80,8 @@ for(const repo of repos) {
         break;
 }
 /*
- // For the Test to not make request every time
- // Pour faire les tests pour ne pas faire de requête à chaque fois
+  For the Test to not make request every time
+  Pour faire les tests pour ne pas faire de requête à chaque fois
 const arr = [];
 arr[0] = ["a-delete", "0", "1", "5", "C++", "14 K", "1"]
 arr[1] = ["DiscartGauthier", "0", "1", "10", "No code", "20", "0"]
