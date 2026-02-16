@@ -1,0 +1,11 @@
+{
+  "name": "minecraft-gitprofile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:png": "node tools/generate-png.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "latest"
+  }
+}
