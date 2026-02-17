@@ -1,9 +1,11 @@
 .DS_STORE
 Thumbs.db
 .env
-config.json
-./script/config.js
 config.js
 inventory.html
-./sprites/*
-./sprites/#
+sprites
+tools/generate-png.mjs
+update-png.sh
+node_modules
+package-lock.json
+package.json
