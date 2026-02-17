@@ -3,3 +3,6 @@ Thumbs.db
 .env
 config.json
 ./script/config.js
+config.js
+inventory.html
+./sprites/
