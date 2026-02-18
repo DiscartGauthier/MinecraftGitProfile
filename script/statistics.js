@@ -62,14 +62,20 @@ let k=0;
 for(const repo of repos) {
     // 'll take the json for contributor et commit
     // Ira chercher les JSON pour contributors et Commits
-    const commitsJson = await getJson(gitUrlRepos + repo.name + "/commits");
+    let commitsJson="";
+    let index;
+    for (index=0; commitsJson.length<100 ; index++)
+    {
+        commitsJson = await getJson(gitUrlRepos + repo.name + "/commits" + "?per_page=100&page=" + index);
+    }
+    
     const contributorsJson = await getJson(gitUrlRepos + repo.name + "/contributors");
     // Will take every that it needs
     // Reprends tout ce qu'il faut mettre dans la table
     const repoName = repo.name;
     const repostarsNumber = numberToString(repo.stargazers_count);
     const repoContributorsNumber = numberToString(contributorsJson.length);
-    const repoCommitsNumber = numberToString(commitsJson.length);
+    const repoCommitsNumber = numberToString(commitsJson.length*index);
     const repoLanguage = noMoreCaracter(repo.language, 16);
     const repoSize = numberToString(repo.size);
     const repoForksNumber = numberToString(repo.forks_count);
