@@ -62,20 +62,16 @@ let k=0;
 for(const repo of repos) {
     // 'll take the json for contributor et commit
     // Ira chercher les JSON pour contributors et Commits
-    let commitsJson="";
-    let index;
-    for (index=0; commitsJson.length<100 ; index++)
-    {
-        commitsJson = await getJson(gitUrlRepos + repo.name + "/commits" + "?per_page=100&page=" + index);
-    }
-    
     const contributorsJson = await getJson(gitUrlRepos + repo.name + "/contributors");
     // Will take every that it needs
     // Reprends tout ce qu'il faut mettre dans la table
     const repoName = repo.name;
     const repostarsNumber = numberToString(repo.stargazers_count);
     const repoContributorsNumber = numberToString(contributorsJson.length);
-    const repoCommitsNumber = numberToString(commitsJson.length*index);
+    let CommitsNumber = await getCommitCount(window.GitHubUsername ,repo.name);
+    console.log(CommitsNumber);
+    const repoCommitsNumber = numberToString(CommitsNumber);
+    console.log(repoCommitsNumber);
     const repoLanguage = noMoreCaracter(repo.language, 16);
     const repoSize = numberToString(repo.size);
     const repoForksNumber = numberToString(repo.forks_count);
@@ -242,3 +238,26 @@ if (downloadBtn) {
     });
 }
 
+
+
+async function getCommitCount(owner, repoName) {
+  const perPage = 100;
+  let page = 1;
+  let total = 0;
+
+  while (true) {
+    const url = `https://api.github.com/repos/${owner}/${repoName}/commits?per_page=${perPage}&page=${page}`;
+    const commits = await getJson(url);
+
+    if (!Array.isArray(commits)) {
+      console.error("GitHub error:", commits);
+      break;
+    }
+
+    total += commits.length;
+    if (commits.length < perPage) break;
+    page++;
+  }
+
+  return total;
+}
