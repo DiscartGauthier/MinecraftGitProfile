@@ -3,8 +3,8 @@ const params = typeof location !== "undefined"
   : new URLSearchParams("");
 
 const window = {
-  GitHubUsername: params.get("github") ?? "DiscartGauthier",
-  MinecraftUsername: params.get("minecraft") ?? "XGORATH_",
+  GitHubUsername: params.get("github") ?? "John",
+  MinecraftUsername: params.get("minecraft") ?? "Doe",
 };
 
 export default window;
